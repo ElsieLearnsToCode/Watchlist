@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "python -3",
+        "./app"
+    ]
+}
