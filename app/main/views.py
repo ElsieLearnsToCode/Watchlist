@@ -1,11 +1,12 @@
 from webbrowser import get
 from flask import render_template,request,redirect,url_for
-from app import app
+from . import main
 from ..request import get_movies
 from ..request import get_movies,get_movie
 from ..request import get_movies,get_movie,search_movie
+from ..models import Review
 
-@app.route('/')
+@main.route('/')
 def index():
 
     '''
@@ -28,7 +29,7 @@ def index():
 
 
 
-@app.route('/movie/<int:id>')
+@main.route('/movie/<int:id>')
 def movie(id):
 
     '''
@@ -41,13 +42,13 @@ def movie(id):
 
 
 
-@app.route('/about')
+@main.route('/about')
 def about():
     message = "about page"
     return render_template('about.html', message = message)
 
 
-@app.route('/search/<movie_name>')
+@main.route('/search/<movie_name>')
 def search(movie_name):
     '''
     View function to display the search results
